@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import EditBox from "../Base/EditBox.vue";
+import type { Ref } from "vue";
+const tab: Ref<string> = ref("preview");
 </script>
 <template>
   <div>
     <BaseTabPanel />
+    <BaseTabContainers v-model="tab">
+      <BaseTabContainer name="markdown"> markdown </BaseTabContainer>
+      <BaseTabContainer name="preview"> preview </BaseTabContainer>
+    </BaseTabContainers>
     <form>
-      <EditBox />
+      <BaseEditBox />
       <BaseButton label="Publish" />
     </form>
   </div>
