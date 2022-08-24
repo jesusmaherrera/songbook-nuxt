@@ -230,10 +230,15 @@
       <textarea
         id="editor"
         rows="8"
-        class="block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+        class="UbuntuMono block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
         placeholder="Write an article..."
         required=""
       ></textarea>
     </div>
   </div>
 </template>
+<style>
+.UbuntuMono {
+  font-family: "Ubuntu Mono", monospace;
+}
+</style>
