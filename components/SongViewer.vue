@@ -33,10 +33,17 @@ const formatedText = computed(() => {
       let note = "";
       let startIndex = null;
       for (var letterIndex in line) {
+        const isLastIndex = Number(letterIndex) === line.length - 1;
         if (line[letterIndex] != " ") {
           note += line[letterIndex];
           if (startIndex === null) startIndex = letterIndex;
-        } else if (startIndex != null) {
+          if (isLastIndex) {
+            line_notes.push({
+              note: note,
+              index: Number(startIndex),
+            });
+          }
+        } else if (startIndex != null || isLastIndex) {
           line_notes.push({
             note: note,
             index: Number(startIndex),
