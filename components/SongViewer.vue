@@ -11,8 +11,8 @@ interface Note {
 const props = defineProps<Props>();
 const formatedText = computed(() => {
   let lines = props.source.trim().split(/\n/);
-  let line_notes: Note[] = [];
   let lines_html: string[] = [];
+  let line_notes: Note[] = [];
   lines.forEach(function (line: any) {
     const isNotesLine = line.indexOf("  ") !== -1;
     if (!isNotesLine) {
@@ -27,7 +27,10 @@ const formatedText = computed(() => {
           extraLength += newString.length - 1;
         });
       }
+      line += "<br />";
+      if (line_notes.length > 0) line += "<br />";
       lines_html.push(line);
+      line_notes = [];
     }
     if (isNotesLine) {
       let note = "";
@@ -54,7 +57,7 @@ const formatedText = computed(() => {
       }
     }
   });
-  const returnValue = lines_html.join("<br /><br />");
+  const returnValue = lines_html.join("");
   return returnValue;
   // return '<span class="relative">U<span class="absolute -top-5 left-0 text-red-600 text-sm font-semibold">Rem</span></span>n joven se acercó a Jesús que sonreía,';
 });
