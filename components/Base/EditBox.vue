@@ -1,3 +1,9 @@
+<script setup lang="ts">
+interface Props {
+  modelValue: string;
+}
+defineProps<Props>();
+</script>
 <template>
   <div
     class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600"
@@ -228,11 +234,13 @@
     <div class="py-2 px-4 bg-white rounded-b-lg dark:bg-gray-800">
       <label for="editor" class="sr-only">Publish post</label>
       <textarea
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
         id="editor"
         rows="8"
         class="UbuntuMono block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
         placeholder="Write an article..."
-        required=""
+        required
       ></textarea>
     </div>
   </div>

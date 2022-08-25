@@ -1,22 +1,18 @@
 <script setup lang="ts">
 import type { Ref } from "vue";
-const tab: Ref<string> = ref("simple");
-const tabs: string[] = ref(["markdown", "simple"]);
+const song: Ref<string> = ref(`
+Rem      Solm    Do          Fa
+Un joven se acercó a Jesús que sonreía,
+`);
 </script>
 
 <template>
   <div class="flex">
     <div class="grow">
-      <BaseTabPanel v-model="tab" :options="tabs" />
-      <BaseTabContainers v-model="tab">
-        <BaseTabContainer v-if="tab === 'markdown'">
-          <BaseEditBox />
-        </BaseTabContainer>
-        <BaseTabContainer v-if="tab === 'simple'"> Simple </BaseTabContainer>
-      </BaseTabContainers>
+      <BaseEditBox v-model="song" />
     </div>
     <div class="grow w-70">
-      <SongViewer />
+      <SongViewer :source="song" />
     </div>
   </div>
   <div>
@@ -25,3 +21,5 @@ const tabs: string[] = ref(["markdown", "simple"]);
     </form>
   </div>
 </template>
+
+] +ñ
