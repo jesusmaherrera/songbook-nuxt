@@ -3,6 +3,8 @@ import type { Ref } from "vue";
 const song: Ref<string> = ref(`
 Rem      Solm    Do          Fa
 Un joven se acercó a Jesús que sonreía,
+Rem      Solm    Do          Fa
+Un joven se acercó a Jesús que sonreía,
 `);
 </script>
 
