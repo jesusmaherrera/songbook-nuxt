@@ -237,7 +237,7 @@ defineProps<Props>();
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
         id="editor"
-        rows="8"
+        rows="40"
         class="UbuntuMono block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
         placeholder="Write an article..."
         required

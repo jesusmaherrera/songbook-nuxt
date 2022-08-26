@@ -21,5 +21,3 @@ Un joven se acercó a Jesús que sonreía,
     </form>
   </div>
 </template>
-
-] +ñ

@@ -13,9 +13,17 @@ const formatedText = computed(() => {
   let lines = props.source.trim().split(/\n/);
   let lines_html: string[] = [];
   let line_notes: Note[] = [];
+  let line_notes_length: number = null;
   lines.forEach(function (line: any) {
     const isNotesLine = line.indexOf("  ") !== -1;
     if (!isNotesLine) {
+      const isLongest = line.length < line_notes_length;
+      if (line_notes_length !== null && isLongest) {
+        const diferenceLength = line_notes_length - line.length;
+        for (let index = 0; index < diferenceLength; index++) {
+          line += " ";
+        }
+      }
       if (line_notes.length !== 0) {
         let extraLength = 0;
         line_notes.forEach((line_note) => {
@@ -31,8 +39,10 @@ const formatedText = computed(() => {
       if (line_notes.length > 0) line += "<br />";
       lines_html.push(line);
       line_notes = [];
+      line_notes_length = null;
     }
     if (isNotesLine) {
+      line_notes_length = line.length;
       let note = "";
       let startIndex = null;
       for (var letterIndex in line) {
