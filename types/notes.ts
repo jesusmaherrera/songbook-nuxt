@@ -8,5 +8,10 @@ interface NotesLine {
   notes: Note[];
   length: number;
 }
+interface Line {
+  notes: Note[],
+  notesText: string,
+  line: string,
+}
 
-export { NotesLine, Note };
+export { NotesLine, Note, Line };
